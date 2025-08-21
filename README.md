@@ -1,3 +1,5 @@
+# initialize docker...
+
 ## build docker container image (using python)
 
 ```
@@ -48,4 +50,11 @@ docker build -f Dockerfile -t udaradoc/ai-first-app-test:v1 .
 docker push udaradoc/ai-first-app-test:v1
 ```
 
-##
+# Docker compose
+
+- crete the compose.yml and run using,
+```
+docker compose up
+```
+- then goto localhost:8000 and check
+

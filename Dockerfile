@@ -19,3 +19,4 @@ FROM python:latest
 # python -m http.server 8000 pyapp
 # docker run -it -p 3000:8000  pyapp 
 CMD ["python", "-m", "http.server", "8000" ]
+
