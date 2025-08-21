@@ -58,3 +58,29 @@ docker compose up
 ```
 - then goto localhost:8000 and check
 
+---
+
+# http
+```
+PS C:\deploy AI> docker compose run app /bin/bash 
+root@2a243769be71:/# ls
+bin   etc         lib    mnt   root  srv  usr
+boot  home        lib64  opt   run   sys  var
+dev   index.html  media  proc  sbin  tmp
+root@2a243769be71:/# cat docker env
+cat: docker: No such file or directory
+cat: env: No such file or directory
+root@2a243769be71:/# cat .dockerenv
+root@2a243769be71:/# cd home
+root@2a243769be71:/home# echo "hello" > index.html 
+root@2a243769be71:/home# 
+```
+
+- docker compose up , should be enter before it.
+
+```
+RUN echo "hello" > index.html
+docker compose up --build
+```
+
+# local files to docker

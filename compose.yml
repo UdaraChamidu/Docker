@@ -2,17 +2,25 @@
 # manage many containers
 
 services:
-  app:
-    image: python:latest
+  backend:
+    build: 
+      context: ./static_html
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8000
+    command: python -m http.server 8000
+    volumes:
+      - ./backend/src:./app
+ 
+  # for another one. (app name and ports must be unique)
+  static_html:
+    #image: python:latest
+    build: 
+      context: ./static_html
+      dockerfile: static.Dockerfile
     ports:
       - 8000:8000
       - 3000:8000
     command: python -m http.server 8000
-
-  # for another one. (app name and ports must be unique)
-  app2:
-    image: python:latest
-    ports:
-      - 8001:8000
-      - 3001:8000
-    command: python -m http.server 8000
+    volumes:
+      - ./static_html/src:/app
